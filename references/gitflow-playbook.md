@@ -3,7 +3,9 @@
 ## Contents
 
 - Discovery Checklist
+- Initialization Script
 - Branch Roles And Naming
+- Agent Commit Flow
 - Plain Git Recipes
 - `git flow` CLI Equivalents
 - PR-First Variant
@@ -32,17 +34,70 @@ git for-each-ref refs/heads --format="%(refname:short) %(upstream:short)"
 
 If the repo uses `master` instead of `main`, substitute it consistently. If `develop` does not exist, do not force Git Flow onto the repo without explicit user approval.
 
+## Initialization Script
+
+Use the built-in PowerShell helper when a repository needs Git Flow setup before normal feature, release, or hotfix work:
+
+```powershell
+.\scripts\init-git-flow.ps1
+```
+
+Common variants:
+
+```powershell
+.\scripts\init-git-flow.ps1 -Push
+.\scripts\init-git-flow.ps1 -ConfigureGitFlow
+.\scripts\init-git-flow.ps1 -ProductionBranch master -DevelopBranch develop
+.\scripts\init-git-flow.ps1 -Push -ConfigureGitFlow
+```
+
+What it does:
+
+- verifies the current directory is a Git repo
+- refuses to run on a dirty working tree unless `-AllowDirty` is set
+- fetches the remote if `origin` exists
+- ensures the production branch exists
+- creates or checks out `develop`
+- optionally pushes `develop`
+- optionally writes local `gitflow.*` configuration
+
 ## Branch Roles And Naming
 
 - `main` or `master`: production-ready history
 - `develop`: integration branch for the next release
 - `feature/<ticket>-<slug>`: net-new work for the next release
+- `codex/feature/<slug>`: optional namespaced variant for agent-owned feature work that still targets `develop`
 - `release/<version>`: stabilization branch created from `develop`
 - `hotfix/<version>`: urgent production fix created from `main`
 - `bugfix/<ticket>-<slug>`: optional; only use if the repo already does
 - `support/<major.minor>`: long-lived maintenance line; only use if the repo already has it
 
 Prefer the repository's existing ticket and version format over a generic template.
+
+## Agent Commit Flow
+
+This is the default day-to-day path for agent-authored changes in a Git Flow repository:
+
+```powershell
+git switch develop
+git pull --ff-only origin develop
+git switch -c codex/feature/init-script
+# edit files
+git add <files>
+git commit -m "🛠️ Add Git Flow initialization helper" -m "- summary line 1`n- summary line 2`n- summary line 3"
+git switch develop
+git pull --ff-only origin develop
+git merge --no-ff codex/feature/init-script
+git push origin develop
+git branch -d codex/feature/init-script
+```
+
+Notes:
+
+- use `feature/<ticket>-<slug>` when the repository does not namespace agent branches
+- use `codex/feature/<slug>` when the team wants agent work to stand out
+- keep `main` untouched during normal feature work
+- if the repository is PR-first, replace the local merge with a PR into `develop`
 
 ## Plain Git Recipes
 

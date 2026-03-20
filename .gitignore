@@ -1,0 +1,11 @@
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.bak
+node_modules/
+dist/
+.vitepress/
+.venv/
+__pycache__/
+*.pyc
