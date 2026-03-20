@@ -126,6 +126,14 @@ Use the condensed patterns below. Read [references/gitflow-playbook.md](./refere
 - `Audit the drift between main and develop and tell me how to repair it safely.`
 - `Do the equivalent of git-flow release finish with plain git commands.`
 - `Check whether this repository is actually following Git Flow before we touch branches.`
+- `Initialize this repository for Git Flow and create develop safely.`
+
+## Built-In Script
+
+- Run [scripts/init-git-flow.ps1](./scripts/init-git-flow.ps1) when the user wants to initialize a repository for Git Flow.
+- Default behavior assumes `main` is the production branch and creates `develop` from it if needed.
+- Add `-Push` to publish `develop` to the remote, and `-ConfigureGitFlow` to write local `gitflow.*` config keys for `git flow` tooling.
+- If the working tree is dirty, stop unless the user explicitly wants `-AllowDirty`.
 
 ## Reference Files
 
