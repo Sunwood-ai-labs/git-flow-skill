@@ -1,0 +1,66 @@
+name: Validate
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+      - "feature/**"
+      - "codex/**"
+      - "release/**"
+      - "hotfix/**"
+  pull_request:
+
+jobs:
+  validate-skill:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Setup uv
+        uses: astral-sh/setup-uv@v6
+
+      - name: Validate skill metadata
+        run: uv run --with pyyaml python ./scripts/validate-skill.py .
+
+  smoke-init-script:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Smoke test Git Flow initializer
+        shell: pwsh
+        run: |
+          $tempRepo = Join-Path $env:RUNNER_TEMP "git-flow-smoke"
+          if (Test-Path $tempRepo) {
+            Remove-Item -Recurse -Force $tempRepo
+          }
+
+          New-Item -ItemType Directory -Path $tempRepo | Out-Null
+          Set-Location $tempRepo
+
+          git init -b main | Out-Null
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          Set-Content README.md "smoke"
+          git add README.md
+          git commit -m "init" | Out-Null
+
+          powershell -ExecutionPolicy Bypass -File "$env:GITHUB_WORKSPACE\scripts\init-git-flow.ps1" -ConfigureGitFlow
+
+          $developBranch = (git branch --list develop).Trim()
+          if (-not $developBranch) {
+            throw "develop branch was not created."
+          }
+
+          $configuredDevelop = (git config --get gitflow.branch.develop).Trim()
+          if ($configuredDevelop -ne "develop") {
+            throw "gitflow.branch.develop was not configured."
+          }
