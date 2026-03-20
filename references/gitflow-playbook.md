@@ -3,6 +3,7 @@
 ## Contents
 
 - Discovery Checklist
+- Initialization Script
 - Branch Roles And Naming
 - Plain Git Recipes
 - `git flow` CLI Equivalents
@@ -31,6 +32,33 @@ git for-each-ref refs/heads --format="%(refname:short) %(upstream:short)"
 ```
 
 If the repo uses `master` instead of `main`, substitute it consistently. If `develop` does not exist, do not force Git Flow onto the repo without explicit user approval.
+
+## Initialization Script
+
+Use the built-in PowerShell helper when a repository needs Git Flow setup before normal feature, release, or hotfix work:
+
+```powershell
+.\scripts\init-git-flow.ps1
+```
+
+Common variants:
+
+```powershell
+.\scripts\init-git-flow.ps1 -Push
+.\scripts\init-git-flow.ps1 -ConfigureGitFlow
+.\scripts\init-git-flow.ps1 -ProductionBranch master -DevelopBranch develop
+.\scripts\init-git-flow.ps1 -Push -ConfigureGitFlow
+```
+
+What it does:
+
+- verifies the current directory is a Git repo
+- refuses to run on a dirty working tree unless `-AllowDirty` is set
+- fetches the remote if `origin` exists
+- ensures the production branch exists
+- creates or checks out `develop`
+- optionally pushes `develop`
+- optionally writes local `gitflow.*` configuration
 
 ## Branch Roles And Naming
 
