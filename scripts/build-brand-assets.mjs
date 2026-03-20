@@ -55,19 +55,21 @@ function heroSvg() {
   <text x="154" y="432" font-family="'Segoe UI','Yu Gothic UI','Meiryo',sans-serif" font-size="34" font-weight="500" fill="${theme.muted}">repair paths, and agent-owned feature branches.</text>
 
   <g transform="translate(154 486)">
-    <rect width="270" height="116" rx="26" fill="#FAF6EF" stroke="${theme.border}" />
+    <rect width="300" height="128" rx="26" fill="#FAF6EF" stroke="${theme.border}" />
     <text x="28" y="40" font-family="'Segoe UI','Yu Gothic UI','Meiryo',sans-serif" font-size="22" font-weight="700" fill="${theme.muted}">Initialize</text>
-    <text x="28" y="82" font-family="'Segoe UI','Yu Gothic UI','Meiryo',sans-serif" font-size="34" font-weight="800" fill="${theme.text}">develop safely</text>
+    <text x="28" y="86" font-family="'Segoe UI','Yu Gothic UI','Meiryo',sans-serif" font-size="34" font-weight="800" fill="${theme.text}">develop safely</text>
   </g>
-  <g transform="translate(452 486)">
-    <rect width="270" height="116" rx="26" fill="#FAF6EF" stroke="${theme.border}" />
+  <g transform="translate(474 486)">
+    <rect width="300" height="128" rx="26" fill="#FAF6EF" stroke="${theme.border}" />
     <text x="28" y="40" font-family="'Segoe UI','Yu Gothic UI','Meiryo',sans-serif" font-size="22" font-weight="700" fill="${theme.muted}">Finish</text>
-    <text x="28" y="82" font-family="'Segoe UI','Yu Gothic UI','Meiryo',sans-serif" font-size="34" font-weight="800" fill="${theme.text}">release and hotfix</text>
+    <text x="28" y="76" font-family="'Segoe UI','Yu Gothic UI','Meiryo',sans-serif" font-size="30" font-weight="800" fill="${theme.text}">release and</text>
+    <text x="28" y="112" font-family="'Segoe UI','Yu Gothic UI','Meiryo',sans-serif" font-size="30" font-weight="800" fill="${theme.text}">hotfix</text>
   </g>
-  <g transform="translate(750 486)">
-    <rect width="270" height="116" rx="26" fill="#FAF6EF" stroke="${theme.border}" />
+  <g transform="translate(794 486)">
+    <rect width="300" height="128" rx="26" fill="#FAF6EF" stroke="${theme.border}" />
     <text x="28" y="40" font-family="'Segoe UI','Yu Gothic UI','Meiryo',sans-serif" font-size="22" font-weight="700" fill="${theme.muted}">Track</text>
-    <text x="28" y="82" font-family="'Segoe UI','Yu Gothic UI','Meiryo',sans-serif" font-size="34" font-weight="800" fill="${theme.text}">codex/feature/*</text>
+    <text x="28" y="76" font-family="'Segoe UI','Yu Gothic UI','Meiryo',sans-serif" font-size="30" font-weight="800" fill="${theme.text}">codex/</text>
+    <text x="28" y="112" font-family="'Segoe UI','Yu Gothic UI','Meiryo',sans-serif" font-size="30" font-weight="800" fill="${theme.text}">feature/*</text>
   </g>
 
 </svg>`;
