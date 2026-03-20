@@ -39,18 +39,18 @@
 3. Codex から次のように呼び出します。
 
 ```text
-Use $git-flow-skill to initialize this repository for Git Flow and create develop safely.
-Use $git-flow-skill to start a feature branch for PROJ-142 from develop.
-Use $git-flow-skill to finish a release branch and merge it back to main and develop.
+$git-flow-skill を使って、このリポジトリを Git Flow 向けに初期化し、安全に develop を作成して。
+$git-flow-skill を使って、develop から PROJ-142 用の feature branch を開始して。
+$git-flow-skill を使って、release branch を完了し、main と develop の両方へ戻して。
 ```
 
 ## 使い方の例
 
-- `Use $git-flow-skill to detect whether this repo really uses Git Flow before touching branches.`
-- `Use $git-flow-skill to initialize develop and configure gitflow prefixes in this repository.`
-- `Use $git-flow-skill to create a codex/feature branch for a repository polish task.`
-- `Use $git-flow-skill to repair a hotfix that reached main but never got back-merged into develop.`
-- `Use $git-flow-skill to finish a release with plain git because git-flow CLI is not installed.`
+- `$git-flow-skill を使って、この repo が本当に Git Flow かどうか、branch を触る前に確認して。`
+- `$git-flow-skill を使って、このリポジトリで develop を初期化し、gitflow prefix も設定して。`
+- `$git-flow-skill を使って、repository polish 用の codex/feature branch を作成して。`
+- `$git-flow-skill を使って、main に入ったのに develop へ戻っていない hotfix を修復して。`
+- `$git-flow-skill を使って、git-flow CLI なしで release finish 相当を plain git でやって。`
 
 ## Branch 戦略
 
