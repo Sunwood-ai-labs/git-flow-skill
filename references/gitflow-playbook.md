@@ -5,6 +5,7 @@
 - Discovery Checklist
 - Initialization Script
 - Branch Roles And Naming
+- Agent Commit Flow
 - Plain Git Recipes
 - `git flow` CLI Equivalents
 - PR-First Variant
@@ -65,12 +66,38 @@ What it does:
 - `main` or `master`: production-ready history
 - `develop`: integration branch for the next release
 - `feature/<ticket>-<slug>`: net-new work for the next release
+- `codex/feature/<slug>`: optional namespaced variant for agent-owned feature work that still targets `develop`
 - `release/<version>`: stabilization branch created from `develop`
 - `hotfix/<version>`: urgent production fix created from `main`
 - `bugfix/<ticket>-<slug>`: optional; only use if the repo already does
 - `support/<major.minor>`: long-lived maintenance line; only use if the repo already has it
 
 Prefer the repository's existing ticket and version format over a generic template.
+
+## Agent Commit Flow
+
+This is the default day-to-day path for agent-authored changes in a Git Flow repository:
+
+```powershell
+git switch develop
+git pull --ff-only origin develop
+git switch -c codex/feature/init-script
+# edit files
+git add <files>
+git commit -m "🛠️ Add Git Flow initialization helper" -m "- summary line 1`n- summary line 2`n- summary line 3"
+git switch develop
+git pull --ff-only origin develop
+git merge --no-ff codex/feature/init-script
+git push origin develop
+git branch -d codex/feature/init-script
+```
+
+Notes:
+
+- use `feature/<ticket>-<slug>` when the repository does not namespace agent branches
+- use `codex/feature/<slug>` when the team wants agent work to stand out
+- keep `main` untouched during normal feature work
+- if the repository is PR-first, replace the local merge with a PR into `develop`
 
 ## Plain Git Recipes
 

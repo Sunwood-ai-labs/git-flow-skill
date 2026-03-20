@@ -40,6 +40,7 @@ git config --get-regexp "gitflow\\..*"
    - production branch: usually `main` or `master`
    - integration branch: usually `develop`
    - branch prefixes: `feature/`, `release/`, `hotfix/`, sometimes `bugfix/`
+   - namespace variants such as `codex/feature/...` that still behave like feature work
    - tag pattern: `v1.2.3`, `1.2.3`, or a team-specific variant
    - whether the repo expects direct merges, pull requests, or `git flow` CLI
 4. If `develop` is missing or branch roles are unclear, pause and explain the mismatch before continuing.
@@ -48,6 +49,7 @@ git config --get-regexp "gitflow\\..*"
 ## Workflow Decision Tree
 
 - Net-new work for the next release: branch from `develop` into `feature/<ticket>-<slug>`.
+- Agent-owned net-new work may use a namespaced variant such as `codex/feature/<slug>` if the team wants agent branches to be easy to spot.
 - Stabilizing the next version: branch from `develop` into `release/<version>`.
 - Urgent production fix: branch from `main` into `hotfix/<version>` or the repo equivalent.
 - Non-production defect for the next release: use `bugfix/` only if the repo already uses it; otherwise treat it as a feature branch from `develop`.
@@ -86,8 +88,23 @@ Use the condensed patterns below. Read [references/gitflow-playbook.md](./refere
 
 - Confirm `develop` exists and is current.
 - Create `feature/<ticket>-<slug>` from `develop`.
+- If the repository namespaces agent work, use a semantic variant such as `codex/feature/<slug>` and still treat it as a feature branch targeting `develop`.
 - Implement, validate, and merge back into `develop`.
 - Delete the branch only after the target merge is verified.
+
+## Agent Commit Flow
+
+Use this when Codex or another agent is making a normal change for the next release:
+
+1. Initialize Git Flow first if the repository does not have `develop` yet.
+2. Start from `develop`.
+3. Create a feature branch such as `feature/<ticket>-<slug>` or `codex/feature/<slug>`.
+4. Make one or more focused commits on that feature branch.
+5. Merge the finished feature branch back into `develop` with `--no-ff` unless the repository has a PR-only rule.
+6. Push `develop` after the merge is verified.
+7. Delete the feature branch after local and remote verification.
+
+Treat this as the default strategy for agent-authored changes. Reserve direct work on `main` for release and hotfix handling only.
 
 ### Release
 
