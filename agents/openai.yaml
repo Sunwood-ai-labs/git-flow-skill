@@ -1,0 +1,4 @@
+interface:
+  display_name: "Git Flow"
+  short_description: "Coordinate git-flow branches, releases, and fixes"
+  default_prompt: "Use $git-flow-skill to detect this repo's branching model and plan a safe git-flow branch, merge, release, or hotfix path if it applies."
