@@ -30,7 +30,8 @@ The repository also includes a small PowerShell initializer so a new repository 
 - Handles `feature/*`, `release/*`, `hotfix/*`, and namespaced variants like `codex/feature/*`.
 - Includes a reusable `init-git-flow.ps1` script for creating `develop` and optional `gitflow.*` config.
 - Ships with a practical playbook for plain `git`, `git flow` CLI, PR-first teams, and recovery scenarios.
-- Encourages rollback-friendly, task-scoped commits with emoji-first titles and Markdown-style bodies.
+- Encourages rollback-friendly, task-scoped commits with a default floor of 2 commits for substantive work.
+- Pushes agent-run feature work through commit, push, merge into `develop`, and branch cleanup unless repo policy blocks it.
 - Validates itself in CI and smoke-tests the initialization script on Windows.
 
 ## Installation
@@ -65,10 +66,18 @@ Use $git-flow-skill to finish a release branch and merge it back to main and dev
 ## Commit Discipline
 
 - Split work by task so a single rollback can undo one coherent unit.
+- For substantive agent work, use at least 2 commits by default. Treat 1 commit as the exception for tiny single-purpose edits.
 - Keep docs, assets, workflows, and code separate when they do not need to move together.
+- Prefer natural boundaries such as scaffolding, implementation logic, and tests or docs.
 - Start every commit title with an emoji.
 - Write the commit body in English with at least 5 Markdown-style lines.
 - Prefer `git commit -F` with [`templates/commit-message-template.md`](./templates/commit-message-template.md) so the message itself documents the change completely.
+
+## Agent Finish Expectation
+
+- If the user asks Codex to execute a feature task instead of merely explaining it, the default finish line is end-to-end completion.
+- That means validated commits on the feature branch, feature-branch push, merge into `develop`, `develop` push, and local plus remote branch deletion.
+- Stop earlier only when the user explicitly asks to pause or the repository is PR-gated.
 
 ## Included Files
 
