@@ -99,6 +99,22 @@ Notes:
 - keep `main` untouched during normal feature work
 - if the repository is PR-first, replace the local merge with a PR into `develop`
 
+### Commit Rules For Agent Work
+
+- split commits by task so a rollback can target one logical unit at a time
+- keep docs, assets, workflows, and code in separate commits when the work naturally separates that way
+- start the commit title with an emoji
+- write the body in English as a Markdown-style note with at least 5 lines
+- make the message descriptive enough that a reviewer can understand the change without opening the diff
+
+Preferred pattern:
+
+```powershell
+Copy-Item .\templates\commit-message-template.md .\commit-message.md
+# edit commit-message.md
+git commit -F .\commit-message.md
+```
+
 ## Plain Git Recipes
 
 ### Start A Feature
