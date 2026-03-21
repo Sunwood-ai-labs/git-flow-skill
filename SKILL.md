@@ -106,6 +106,15 @@ Use this when Codex or another agent is making a normal change for the next rele
 
 Treat this as the default strategy for agent-authored changes. Reserve direct work on `main` for release and hotfix handling only.
 
+### Commit Discipline
+
+- Split work into the smallest rollback-friendly commits that still form a coherent unit.
+- Do not lump unrelated docs, assets, workflows, and logic changes into one commit when they can be separated safely.
+- Prefix every commit title with an emoji for quick scanning.
+- Write commit messages in English.
+- Use a Markdown-style commit body with at least 5 lines so the message alone explains the work clearly.
+- Prefer `git commit -F` with [templates/commit-message-template.md](./templates/commit-message-template.md) or a filled copy of it instead of a terse single-line message.
+
 ### Release
 
 - Confirm `develop` is stable enough to branch.
