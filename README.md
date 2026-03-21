@@ -30,6 +30,7 @@ The repository also includes a small PowerShell initializer so a new repository 
 - Handles `feature/*`, `release/*`, `hotfix/*`, and namespaced variants like `codex/feature/*`.
 - Includes a reusable `init-git-flow.ps1` script for creating `develop` and optional `gitflow.*` config.
 - Ships with a practical playbook for plain `git`, `git flow` CLI, PR-first teams, and recovery scenarios.
+- Encourages rollback-friendly, task-scoped commits with emoji-first titles and Markdown-style bodies.
 - Validates itself in CI and smoke-tests the initialization script on Windows.
 
 ## Installation
@@ -60,6 +61,14 @@ Use $git-flow-skill to finish a release branch and merge it back to main and dev
 - `codex/feature/<slug>` is supported when you want agent-authored work to stand out.
 - `release/<version>` prepares a stable release candidate from `develop`.
 - `hotfix/<version>` starts from `main` and returns to both `main` and `develop`.
+
+## Commit Discipline
+
+- Split work by task so a single rollback can undo one coherent unit.
+- Keep docs, assets, workflows, and code separate when they do not need to move together.
+- Start every commit title with an emoji.
+- Write the commit body in English with at least 5 Markdown-style lines.
+- Prefer `git commit -F` with [`templates/commit-message-template.md`](./templates/commit-message-template.md) so the message itself documents the change completely.
 
 ## Included Files
 
