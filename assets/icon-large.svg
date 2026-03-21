@@ -1,10 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 512 512" role="img" aria-label="Git Flow Skill icon">
-  <rect width="512" height="512" rx="120" fill="#294B69" />
-  <rect x="42" y="42" width="428" height="428" rx="102" fill="#365574" stroke="#9FB2C4" stroke-width="6" />
-  <path d="M94 314 C 162 314, 176 194, 252 194 S 340 302, 416 302" fill="none" stroke="#FFF7EA" stroke-width="28" stroke-linecap="round"/>
-  <path d="M94 372 C 176 372, 188 256, 258 256 S 344 392, 418 392" fill="none" stroke="#5B725F" stroke-width="24" stroke-linecap="round"/>
-  <path d="M94 248 C 146 248, 180 132, 246 132 S 336 222, 418 222" fill="none" stroke="#A6531A" stroke-width="18" stroke-linecap="round"/>
-  <circle cx="252" cy="194" r="22" fill="#FFFDF8" />
-  <circle cx="258" cy="256" r="18" fill="#FFFDF8" />
-  <circle cx="246" cy="132" r="16" fill="#FFFDF8" />
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 64 64" role="img" aria-label="Git Flow Skill icon" shape-rendering="geometricPrecision">
+  <defs>
+    <linearGradient id="paper-wash" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFF9ED" />
+      <stop offset="100%" stop-color="#FCF3D8" />
+    </linearGradient>
+  </defs>
+
+  <rect width="64" height="64" fill="url(#paper-wash)" />
+  <path d="M18 14 V50" fill="none" stroke="#4F2800" stroke-width="2.25" stroke-opacity="0.32" />
+  <path d="M18 20 C 24 20, 30 19, 44 16.5" fill="none" stroke="#406180" stroke-width="5.75" stroke-linecap="square" stroke-linejoin="miter" />
+  <path d="M18 31 C 25 31, 31 30, 46 27.5" fill="none" stroke="#6F3B00" stroke-width="5.75" stroke-linecap="square" stroke-linejoin="miter" />
+  <path d="M18 42 C 25 42, 31 41, 48 38.5" fill="none" stroke="#263800" stroke-width="5.75" stroke-linecap="square" stroke-linejoin="miter" />
+
+  <rect x="15.75" y="17.75" width="4.5" height="4.5" fill="#406180" />
+  <rect x="15.75" y="28.75" width="4.5" height="4.5" fill="#406180" />
+  <rect x="15.75" y="39.75" width="4.5" height="4.5" fill="#406180" />
+  <rect x="41.75" y="14.25" width="4.5" height="4.5" fill="#406180" />
+  <rect x="43.75" y="25.25" width="4.5" height="4.5" fill="#8C4F10" />
+  <rect x="45.75" y="36.25" width="4.5" height="4.5" fill="#263800" />
 </svg>
