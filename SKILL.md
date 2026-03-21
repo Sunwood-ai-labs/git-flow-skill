@@ -68,6 +68,7 @@ git config --get-regexp "gitflow\\..*"
 - Prefer explicit non-interactive git commands and show the exact branch pair before every merge.
 - Use `git flow` CLI only when it is installed and the repository actually uses it; otherwise execute the same workflow with plain `git`.
 - Never rewrite shared history unless the user explicitly requests it and the risk is understood.
+- For agent-authored feature work, default completion is end-to-end finish, not "code changes are ready". Unless the user explicitly asks to stop early or the repo is PR-gated, carry the work through validated commits, feature-branch push, merge into `develop`, `develop` push, and local plus remote feature-branch cleanup.
 
 ## Execution Pattern
 
@@ -79,6 +80,8 @@ For every request, return:
 - affected branches and tags
 - validation already run
 - remaining manual steps such as PR creation, CI approval, or release publication
+
+When the request is execution rather than explanation, do the finish steps instead of merely listing them whenever the repo policy allows it. Do not present a feature task as complete while still parked on the feature branch unless the user explicitly asked to stop before merge or a PR-only rule blocks the local finish.
 
 ## Standard Flows
 
@@ -99,17 +102,21 @@ Use this when Codex or another agent is making a normal change for the next rele
 1. Initialize Git Flow first if the repository does not have `develop` yet.
 2. Start from `develop`.
 3. Create a feature branch such as `feature/<ticket>-<slug>` or `codex/feature/<slug>`.
-4. Make one or more focused commits on that feature branch.
-5. Merge the finished feature branch back into `develop` with `--no-ff` unless the repository has a PR-only rule.
-6. Push `develop` after the merge is verified.
-7. Delete the feature branch after local and remote verification.
+4. Plan rollback-friendly commit boundaries before staging. For any non-trivial change set, make at least 2 focused commits. Use 3 or more when there is a natural split such as scaffolding, logic, and tests or docs.
+5. Push the feature branch after the commits land so the remote has a recovery point and review surface.
+6. Merge the finished feature branch back into `develop` with `--no-ff` unless the repository has a PR-only rule.
+7. Push `develop` after the merge is verified.
+8. Delete the feature branch locally and remotely after verification.
+9. Leave the branch unmerged or undeleted only when the user explicitly asked to stop early or repository policy requires a PR flow.
 
 Treat this as the default strategy for agent-authored changes. Reserve direct work on `main` for release and hotfix handling only.
 
 ### Commit Discipline
 
 - Split work into the smallest rollback-friendly commits that still form a coherent unit.
+- For substantive agent work, the default minimum is 2 commits. Treat a single commit as the exception for truly tiny, single-purpose edits.
 - Do not lump unrelated docs, assets, workflows, and logic changes into one commit when they can be separated safely.
+- Prefer natural boundaries such as file scaffolding or template moves, implementation logic, and tests or docs.
 - Prefix every commit title with an emoji for quick scanning.
 - Write commit messages in English.
 - Use a Markdown-style commit body with at least 5 lines so the message alone explains the work clearly.
@@ -140,6 +147,7 @@ Treat this as the default strategy for agent-authored changes. Reserve direct wo
 - If the working tree is dirty, pause unless the user asked to include or stash those changes.
 - If a release or hotfix branch already exists for the same version, treat it as the active line instead of silently creating a second branch.
 - If the repo uses PR gates, do not force local finish steps that bypass review.
+- If the user asked the agent to "do it" rather than explain it, do not stop after coding and testing. Finish the feature flow through commit, push, merge into `develop`, push `develop`, and branch cleanup unless a stated repo rule blocks that path.
 - If CI, tests, or version files are part of the release contract, include them in the finish checklist.
 - If branch naming or tag formats are inconsistent, mirror the repo's existing convention and call it out.
 - If the repo is not actually using Git Flow, say so and fall back to the repo's real workflow.

@@ -82,14 +82,19 @@ This is the default day-to-day path for agent-authored changes in a Git Flow rep
 git switch develop
 git pull --ff-only origin develop
 git switch -c codex/feature/init-script
-# edit files
-git add <files>
-git commit -m "🛠️ Add Git Flow initialization helper" -m "- summary line 1`n- summary line 2`n- summary line 3"
+# edit scaffolding files
+git add <files-for-scaffolding>
+git commit -m "🧱 Add Git Flow initialization scaffolding" -m "- summary line 1`n- summary line 2`n- summary line 3"
+# edit logic and validation files
+git add <files-for-logic-and-tests>
+git commit -m "🧪 Finalize init flow behavior and coverage" -m "- summary line 1`n- summary line 2`n- summary line 3"
+git push -u origin codex/feature/init-script
 git switch develop
 git pull --ff-only origin develop
 git merge --no-ff codex/feature/init-script
 git push origin develop
 git branch -d codex/feature/init-script
+git push origin --delete codex/feature/init-script
 ```
 
 Notes:
@@ -98,10 +103,13 @@ Notes:
 - use `codex/feature/<slug>` when the team wants agent work to stand out
 - keep `main` untouched during normal feature work
 - if the repository is PR-first, replace the local merge with a PR into `develop`
+- for non-trivial work, treat 2 commits as the floor and split further when the diff naturally separates into setup, logic, and tests or docs
+- unless the user explicitly says to stop early, "done" means commit, push, merge to `develop`, push `develop`, and delete the feature branch both locally and remotely
 
 ### Commit Rules For Agent Work
 
 - split commits by task so a rollback can target one logical unit at a time
+- for substantive work, make at least 2 commits; keep single-commit features for truly tiny changes only
 - keep docs, assets, workflows, and code in separate commits when the work naturally separates that way
 - start the commit title with an emoji
 - write the body in English as a Markdown-style note with at least 5 lines
