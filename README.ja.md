@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/hero.svg" alt="Git Flow Skill hero banner" width="100%" />
+  <img src="./assets/hero-mascot.png" alt="Git Flow Skill mascot hero image" width="720" />
 </p>
 
 <p align="center">
