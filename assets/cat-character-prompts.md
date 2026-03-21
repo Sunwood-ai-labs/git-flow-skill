@@ -1,61 +1,80 @@
 # Git Flow Skill Cat Character Prompts
 
+## Design Source Of Truth
+
+Use `assets/DESIGN/DESIGN.md` as the canonical brand reference.
+The mascot should follow the "Master Archivist" direction: editorial, archival, asymmetrical, and tactile rather than cute-saas or neon-devtool.
+
 ## Recommended Direction
 
 The best fit for this repository is a "branch steward cat" rather than a generic cute mascot.
-It should feel calm, reliable, observant, and slightly clever, like a maintainer who notices wrong branch bases before anyone else does.
+It should feel like "The Master Archivist" turned into a cat: calm, reliable, observant, and precise, like a maintainer who notices wrong branch bases before anyone else does.
 
 Character idea:
 
-- A short-haired cat with a parchment-cream coat and ink-blue markings
-- A tail that curls into branching ribbon shapes, hinting at `main`, `develop`, `feature`, `release`, and `hotfix`
-- A moss-green sash for steady feature work
-- A copper clasp or bell for release and hotfix energy
-- A paper-white chest and paws so the silhouette stays readable on GitHub
+- A short-haired cat with a warm paper coat, closer to archival parchment than beige fur
+- Deep umber and ink-blue markings instead of pastel accent colors
+- A tail that curls into disciplined branch diagrams, hinting at `main`, `develop`, `feature`, `release`, and `hotfix`
+- A narrow ledger ribbon or seal tag instead of a bright fantasy sash
+- A silhouette that still reads clearly when reduced for README art or icon use
 
 ## Palette
 
-Use the same parchment-ledger palette as the repository assets:
+Use the palette from `assets/DESIGN` rather than the older placeholder colors:
 
-- `Parchment`: `#F5F1E8`
-- `Paper`: `#FFFDF8`
-- `Ink Blue`: `#294B69`
-- `Slate Ink`: `#1A232B`
-- `Moss Ledger`: `#5B725F`
-- `Copper Merge`: `#A6531A`
-- `Warm Border`: `#D8CCBE`
+- `Surface`: `#fff9ed`
+- `Surface Container Low`: `#fcf3d8`
+- `Surface Container Highest`: `#ebe2c8`
+- `Primary Ink`: `#4f2800`
+- `Primary Ink Bleed`: `#6f3b00`
+- `Secondary Ledger Blue`: `#406180`
+- `Tertiary Branch Green`: `#263800`
+- `Copper Highlight / Surface Tint`: `#8c4f10`
+- `On Background Ink`: `#1f1c0b`
+- `Outline Pencil`: `#73777e`
+
+Palette guidance:
+
+- The coat should live between `surface` and `surface-container-low`, not yellow or orange.
+- The dominant accent should be `primary` and `secondary`; `tertiary` and `surface-tint` should stay narrow and strategic.
+- Avoid the older moss-heavy and copper-heavy balance. This design system is more editorial and ink-driven.
 
 ## Core Visual Keywords
 
 - detection-first
 - branch-aware
 - release guardian
-- elegant but tool-like
-- warm editorial illustration
-- clean silhouette
-- subtle paper texture
+- master archivist
+- editorial ledger
+- intentional asymmetry
+- tonal layering
+- no-line rule
+- paper texture
+- crisp silhouette
 - readable at README scale
+- technical pen detail
+- premium open-source branding
 
 ## Master Prompt For A Full Character Illustration
 
 ```text
-Create an original mascot character for a developer tool called "Git Flow Skill": a smart branch steward cat that visually represents safe Git Flow operations. The cat is not a random pet mascot; it feels like a calm maintainer, release guardian, and branch navigator.
+Create an original mascot character for a developer tool called "Git Flow Skill": a branch steward cat designed in the "Master Archivist" visual language. The cat is not a random pet mascot; it feels like a calm maintainer, release guardian, branch navigator, and keeper of a technical ledger.
 
-Design the cat with a parchment-cream coat, paper-white chest and paws, deep ink-blue facial markings, a moss-green sash, and a copper clasp or bell. The tail should curl into elegant branching ribbon shapes that subtly suggest main, develop, feature, release, and hotfix paths. Add small node-like accents inspired by merge points, but keep them tasteful and minimal.
+Design the cat with a warm archival-paper coat based on surface tones (#fff9ed and #fcf3d8), deep primary-ink markings (#4f2800), secondary ledger-blue accents (#406180), and only restrained tertiary branch-green (#263800) or copper-tint (#8c4f10) details. The tail should curl into elegant technical branch shapes that subtly suggest main, develop, feature, release, and hotfix paths. Add small node-like accents inspired by commit squares and merge points, but keep them minimal and diagrammatic.
 
-Art direction: refined editorial character illustration, warm parchment-ledger palette, soft paper texture, crisp silhouette, expressive eyes, slightly mischievous intelligence, clean shape language, premium open-source branding feel, no cluttered background. The character should feel dependable, observant, and branch-aware rather than chaotic or hyperactive.
+Art direction: refined editorial illustration, high-end archival print aesthetic, tonal layering instead of hard outlines, subtle paper texture, intentional asymmetry, crisp silhouette, expressive eyes, slightly severe intelligence, premium open-source branding feel, no cluttered background. The character should feel dependable, observant, and branch-aware rather than chaotic or hyperactive.
 
-Pose the cat on or near a parchment branch map, with the tail visually guiding the eye through branching paths. Make the composition suitable for a repository hero image or documentation banner. Keep the background light and elegant, with subtle flow lines in ink blue, moss green, and copper.
+Pose the cat on or near a ledger-like branch map, with the tail visually guiding the eye through branching paths. Make the composition suitable for a repository hero image or documentation banner. Keep the background light, paper-based, and elegant, using surface and surface-container tones, with subtle ink-blue and umber flow lines rather than bright gradients.
 
-Avoid generic cyberpunk styling. Avoid neon purple. Avoid overly childish proportions. Avoid photorealism. Favor a polished 2D illustration that would look strong in both README art and social preview graphics.
+Avoid generic cyberpunk styling. Avoid neon purple. Avoid pastel overload. Avoid overly childish proportions. Avoid photorealism. Avoid mascot-game UI energy. Favor a polished 2D illustration that would look strong in both README art and social preview graphics.
 ```
 
 ## Prompt For A Square Icon Or Avatar
 
 ```text
-Create a square mascot icon for "Git Flow Skill" featuring a branch steward cat. Focus on the head, upper torso, and a curling tail that forms a branching motif. Use a parchment-cream and paper-white cat with ink-blue markings, moss-green accent fabric, and a copper detail. The expression should feel sharp, dependable, and quietly confident.
+Create a square mascot icon for "Git Flow Skill" featuring a branch steward cat in the Master Archivist style. Focus on the head, upper torso, and a curling tail that forms a branching motif. Use a warm paper-toned coat, primary-ink markings, ledger-blue accents, and only a very restrained branch-green or copper-tint detail. The expression should feel sharp, dependable, and quietly confident.
 
-Style: bold simplified shapes, crisp vector-friendly illustration, premium open-source tool branding, high contrast, readable at small sizes, minimal background, warm parchment tones with ink-blue framing. The design must still feel unique and character-driven, not like a generic logo cat.
+Style: bold simplified shapes, crisp vector-friendly illustration, premium editorial branding, high contrast, readable at small sizes, minimal background, tonal paper surfaces, and strong ink presence. The design must still feel unique and character-driven, not like a generic logo cat.
 ```
 
 ## Prompt For A Character Sheet
@@ -63,7 +82,7 @@ Style: bold simplified shapes, crisp vector-friendly illustration, premium open-
 ```text
 Create a clean character sheet for an original mascot cat designed for a Git Flow themed developer tool. Show front view, three-quarter view, side view, seated pose, walking pose, and one expressive pose where the tail forms branching paths.
 
-Include callouts for the color palette, sash, copper clasp, branch-tail motif, and merge-node details. Keep the art style polished and production-ready, with warm parchment paper tones, ink-blue structure, moss-green stability accents, and copper merge highlights. The character should read as intelligent, reliable, observant, and slightly playful.
+Include callouts for the DESIGN palette, archival paper coat, primary-ink markings, ledger-blue accent areas, restrained branch-green usage, optional copper seal detail, branch-tail motif, and merge-node details. Keep the art style polished and production-ready, with editorial ledger energy rather than soft mascot branding. The character should read as intelligent, reliable, observant, and slightly playful.
 ```
 
 ## Negative Prompt
@@ -74,10 +93,10 @@ photorealistic cat, 3D toy look, plastic texture, generic anime catgirl, neon pu
 
 ## Optional Variations
 
-- Add a tiny brass compass tag if you want stronger "navigator" symbolism.
-- Add a parchment map scroll only when you need a story-driven hero image.
-- For a friendlier version, make the face rounder but keep the body elegant and not super-deformed.
-- For a more premium version, reduce props and rely on tail silhouette, markings, and sash color.
+- Add a tiny archival seal or ledger tab if you want stronger "curator" symbolism.
+- Add a parchment branch map only when you need a story-driven hero image.
+- For a friendlier version, soften the eyes, not the palette.
+- For a more premium version, reduce props and rely on silhouette, tonal layering, and ink-mark patterns.
 
 ## Recommended First Attempt
 
