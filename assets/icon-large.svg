@@ -1,21 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 64 64" role="img" aria-label="Git Flow Skill icon" shape-rendering="geometricPrecision">
-  <defs>
-    <linearGradient id="paper-wash" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#FFF9ED" />
-      <stop offset="100%" stop-color="#FCF3D8" />
-    </linearGradient>
-  </defs>
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 24 24" role="img" aria-label="Git Flow Skill icon" shape-rendering="geometricPrecision">
+  <path d="M6 3.5 V20.5" fill="none" stroke="#4F2800" stroke-width="1" stroke-opacity="0.4" stroke-linecap="square" />
+  <path d="M6 7.5 C 8.3 7.5, 9.9 7.1, 15.8 6" fill="none" stroke="#406180" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" />
+  <path d="M6 12 C 8.5 12, 10.1 11.7, 17 10.5" fill="none" stroke="#6F3B00" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" />
+  <path d="M6 16.5 C 8.5 16.5, 10.3 16.1, 18.2 14.9" fill="none" stroke="#263800" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" />
 
-  <rect width="64" height="64" fill="url(#paper-wash)" />
-  <path d="M18 14 V50" fill="none" stroke="#4F2800" stroke-width="2.25" stroke-opacity="0.32" />
-  <path d="M18 20 C 24 20, 30 19, 44 16.5" fill="none" stroke="#406180" stroke-width="5.75" stroke-linecap="square" stroke-linejoin="miter" />
-  <path d="M18 31 C 25 31, 31 30, 46 27.5" fill="none" stroke="#6F3B00" stroke-width="5.75" stroke-linecap="square" stroke-linejoin="miter" />
-  <path d="M18 42 C 25 42, 31 41, 48 38.5" fill="none" stroke="#263800" stroke-width="5.75" stroke-linecap="square" stroke-linejoin="miter" />
-
-  <rect x="15.75" y="17.75" width="4.5" height="4.5" fill="#406180" />
-  <rect x="15.75" y="28.75" width="4.5" height="4.5" fill="#406180" />
-  <rect x="15.75" y="39.75" width="4.5" height="4.5" fill="#406180" />
-  <rect x="41.75" y="14.25" width="4.5" height="4.5" fill="#406180" />
-  <rect x="43.75" y="25.25" width="4.5" height="4.5" fill="#8C4F10" />
-  <rect x="45.75" y="36.25" width="4.5" height="4.5" fill="#263800" />
+  <rect x="5.25" y="6.75" width="1.5" height="1.5" fill="none" stroke="#406180" stroke-width="1" />
+  <rect x="5.25" y="11.25" width="1.5" height="1.5" fill="none" stroke="#406180" stroke-width="1" />
+  <rect x="5.25" y="15.75" width="1.5" height="1.5" fill="none" stroke="#406180" stroke-width="1" />
+  <rect x="15.05" y="5.25" width="1.5" height="1.5" fill="none" stroke="#406180" stroke-width="1" />
+  <rect x="16.25" y="9.75" width="1.5" height="1.5" fill="none" stroke="#8C4F10" stroke-width="1" />
+  <rect x="17.45" y="14.15" width="1.5" height="1.5" fill="none" stroke="#263800" stroke-width="1" />
 </svg>
