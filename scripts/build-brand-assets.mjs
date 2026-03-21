@@ -2,90 +2,137 @@ import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 const theme = {
-  background: "#F5F1E8",
-  surface: "#FFFDF8",
-  paper: "#FFFDF8",
-  primary: "#294B69",
-  secondary: "#5B725F",
-  accent: "#A6531A",
-  text: "#1A232B",
-  muted: "#5B6670",
-  border: "#D8CCBE",
+  surface: "#FFF9ED",
+  surfaceLow: "#FCF3D8",
+  surfaceHighest: "#EBE2C8",
+  paper: "#FFFFFF",
+  primary: "#4F2800",
+  primaryContainer: "#6F3B00",
+  secondary: "#406180",
+  tertiary: "#263800",
+  tint: "#8C4F10",
+  text: "#1F1C0B",
+  muted: "#42474D",
+  ghost: "#C2C7CE",
+  sidePanel: "#F7EED2",
+  greenWashA: "#E4EAD7",
+  greenWashB: "#D6E2CE",
 };
 
 function heroSvg() {
   return `\
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-label="Git Flow Skill hero banner">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="${theme.background}" />
-      <stop offset="100%" stop-color="#ECE3D3" />
-    </linearGradient>
-    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+    <linearGradient id="paper-wash" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="${theme.surface}" />
-      <stop offset="100%" stop-color="${theme.surface}" />
+      <stop offset="100%" stop-color="${theme.surfaceLow}" />
     </linearGradient>
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="160%">
-      <feDropShadow dx="0" dy="24" stdDeviation="24" flood-color="#5C4C3B" flood-opacity="0.16" />
-    </filter>
+    <linearGradient id="copper-bleed" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="${theme.primary}" />
+      <stop offset="100%" stop-color="${theme.primaryContainer}" />
+    </linearGradient>
+    <linearGradient id="green-wash" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="${theme.greenWashA}" />
+      <stop offset="100%" stop-color="${theme.greenWashB}" />
+    </linearGradient>
+    <pattern id="ledger-line" width="44" height="44" patternUnits="userSpaceOnUse">
+      <path d="M0 43.5 H44" fill="none" stroke="${theme.primary}" stroke-opacity="0.05" stroke-width="1" />
+    </pattern>
   </defs>
 
-  <rect width="1600" height="900" rx="48" fill="url(#bg)" />
-  <circle cx="1380" cy="140" r="120" fill="#EFE3D1" opacity="0.82" />
-  <circle cx="210" cy="760" r="150" fill="#E5D7C2" opacity="0.48" />
+  <rect width="1600" height="900" fill="url(#paper-wash)" />
+  <rect y="0" width="1600" height="108" fill="${theme.surfaceLow}" />
+  <rect x="1180" y="0" width="420" height="900" fill="${theme.sidePanel}" />
+  <rect x="0" y="0" width="1600" height="900" fill="url(#ledger-line)" opacity="0.35" />
 
-  <rect x="90" y="84" width="1420" height="732" rx="40" fill="url(#panel)" stroke="${theme.border}" stroke-width="2" filter="url(#shadow)" />
+  <text x="86" y="68" font-family="'Newsreader', 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Georgia, serif" font-size="28" font-style="italic" fill="${theme.primary}">Git-Flow Skill</text>
+  <text x="1064" y="68" font-family="'Work Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="16" letter-spacing="2" fill="${theme.muted}">ARCHIVE</text>
+  <text x="1156" y="68" font-family="'Work Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="16" letter-spacing="2" fill="${theme.secondary}">BRANCHES</text>
+  <text x="1276" y="68" font-family="'Work Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="16" letter-spacing="2" fill="${theme.muted}">STRATEGY</text>
+  <rect x="1394" y="34" width="118" height="38" fill="url(#copper-bleed)" />
+  <text x="1421" y="58" font-family="'Newsreader', 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Georgia, serif" font-size="18" font-style="italic" fill="${theme.paper}">Open Ledger</text>
 
-  <g opacity="0.95">
-    <path d="M180 680 C 390 680, 470 556, 630 556 S 880 680, 1080 680 1310 566, 1430 566" fill="none" stroke="${theme.primary}" stroke-width="18" stroke-linecap="round"/>
-    <path d="M180 748 C 420 748, 480 640, 640 640 S 890 788, 1100 788 1320 688, 1420 688" fill="none" stroke="${theme.secondary}" stroke-width="18" stroke-linecap="round"/>
-    <path d="M180 624 C 330 624, 430 498, 620 498 S 870 620, 1070 620 1310 514, 1430 514" fill="none" stroke="${theme.accent}" stroke-width="14" stroke-linecap="round"/>
-    <circle cx="630" cy="556" r="18" fill="${theme.paper}" />
-    <circle cx="1080" cy="680" r="18" fill="${theme.paper}" />
-    <circle cx="640" cy="640" r="18" fill="${theme.paper}" />
-    <circle cx="620" cy="498" r="16" fill="${theme.paper}" />
-    <circle cx="1070" cy="620" r="16" fill="${theme.paper}" />
+  <g transform="translate(86 160)">
+    <text x="0" y="0" font-family="'Newsreader', 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Georgia, serif" font-size="106" font-style="italic" fill="${theme.secondary}">Git Flow Skill</text>
+    <text x="0" y="70" font-family="'Work Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="${theme.muted}">A Codex skill for detection-first Git Flow</text>
+    <text x="0" y="112" font-family="'Work Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="${theme.muted}">branching, releases, hotfixes, and</text>
+    <text x="0" y="154" font-family="'Work Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="${theme.muted}">documented agent work.</text>
+
+    <g transform="translate(0 202)">
+      <rect width="184" height="54" fill="url(#copper-bleed)" />
+      <text x="27" y="35" font-family="'Newsreader', 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Georgia, serif" font-size="26" font-style="italic" fill="${theme.paper}">Initialize</text>
+      <rect x="204" width="184" height="54" fill="${theme.surface}" stroke="${theme.ghost}" stroke-opacity="0.18" />
+      <text x="250" y="35" font-family="'Newsreader', 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Georgia, serif" font-size="26" font-style="italic" fill="${theme.secondary}">Read Manual</text>
+    </g>
   </g>
 
-  <rect x="154" y="154" width="196" height="44" rx="22" fill="#EFE3D1" opacity="0.98" />
-  <text x="186" y="183" font-family="'Segoe UI','Yu Gothic UI','Meiryo',sans-serif" font-size="24" font-weight="700" fill="${theme.text}">Codex Skill</text>
+  <g transform="translate(970 146)">
+    <rect width="442" height="422" fill="${theme.surfaceHighest}" />
+    <rect x="34" y="34" width="374" height="354" fill="url(#green-wash)" />
+    <rect x="34" y="34" width="374" height="354" fill="${theme.paper}" fill-opacity="0.18" />
 
-  <text x="154" y="312" font-family="'Segoe UI','Yu Gothic UI','Meiryo',sans-serif" font-size="96" font-weight="800" fill="${theme.text}">Git Flow Skill</text>
-  <text x="154" y="386" font-family="'Segoe UI','Yu Gothic UI','Meiryo',sans-serif" font-size="34" font-weight="500" fill="${theme.muted}">Detection-first Git Flow operations for releases, hotfixes,</text>
-  <text x="154" y="432" font-family="'Segoe UI','Yu Gothic UI','Meiryo',sans-serif" font-size="34" font-weight="500" fill="${theme.muted}">repair paths, and agent-owned feature branches.</text>
+    <path d="M150 88 V304" fill="none" stroke="${theme.primary}" stroke-width="1.5" stroke-opacity="0.2" />
+    <path d="M150 145 C 210 145, 248 126, 328 118" fill="none" stroke="${theme.secondary}" stroke-width="3.5" stroke-linecap="square" stroke-linejoin="miter" />
+    <path d="M150 208 C 226 208, 252 188, 332 180" fill="none" stroke="${theme.primaryContainer}" stroke-width="3.5" stroke-linecap="square" stroke-linejoin="miter" />
+    <path d="M150 270 C 224 270, 248 252, 336 244" fill="none" stroke="${theme.tertiary}" stroke-width="3.5" stroke-linecap="square" stroke-linejoin="miter" />
 
-  <g transform="translate(154 486)">
-    <rect width="300" height="128" rx="26" fill="#FAF6EF" stroke="${theme.border}" />
-    <text x="28" y="40" font-family="'Segoe UI','Yu Gothic UI','Meiryo',sans-serif" font-size="22" font-weight="700" fill="${theme.muted}">Initialize</text>
-    <text x="28" y="86" font-family="'Segoe UI','Yu Gothic UI','Meiryo',sans-serif" font-size="34" font-weight="800" fill="${theme.text}">develop safely</text>
-  </g>
-  <g transform="translate(474 486)">
-    <rect width="300" height="128" rx="26" fill="#FAF6EF" stroke="${theme.border}" />
-    <text x="28" y="40" font-family="'Segoe UI','Yu Gothic UI','Meiryo',sans-serif" font-size="22" font-weight="700" fill="${theme.muted}">Finish</text>
-    <text x="28" y="76" font-family="'Segoe UI','Yu Gothic UI','Meiryo',sans-serif" font-size="30" font-weight="800" fill="${theme.text}">release and</text>
-    <text x="28" y="112" font-family="'Segoe UI','Yu Gothic UI','Meiryo',sans-serif" font-size="30" font-weight="800" fill="${theme.text}">hotfix</text>
-  </g>
-  <g transform="translate(794 486)">
-    <rect width="300" height="128" rx="26" fill="#FAF6EF" stroke="${theme.border}" />
-    <text x="28" y="40" font-family="'Segoe UI','Yu Gothic UI','Meiryo',sans-serif" font-size="22" font-weight="700" fill="${theme.muted}">Track</text>
-    <text x="28" y="76" font-family="'Segoe UI','Yu Gothic UI','Meiryo',sans-serif" font-size="30" font-weight="800" fill="${theme.text}">codex/</text>
-    <text x="28" y="112" font-family="'Segoe UI','Yu Gothic UI','Meiryo',sans-serif" font-size="30" font-weight="800" fill="${theme.text}">feature/*</text>
+    <rect x="146" y="141" width="8" height="8" fill="${theme.secondary}" />
+    <rect x="146" y="204" width="8" height="8" fill="${theme.secondary}" />
+    <rect x="146" y="266" width="8" height="8" fill="${theme.secondary}" />
+    <rect x="325" y="114" width="8" height="8" fill="${theme.secondary}" />
+    <rect x="329" y="176" width="8" height="8" fill="${theme.tint}" />
+    <rect x="333" y="240" width="8" height="8" fill="${theme.tertiary}" />
+
+    <rect x="298" y="368" width="164" height="46" fill="${theme.tertiary}" />
+    <text x="316" y="397" font-family="'Newsreader', 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Georgia, serif" font-size="21" font-style="italic" fill="${theme.paper}">Certified Pattern</text>
   </g>
 
+  <g transform="translate(362 535)">
+    <rect width="788" height="168" fill="url(#green-wash)" />
+    <rect width="788" height="168" fill="${theme.paper}" fill-opacity="0.14" />
+    <rect x="36" y="28" width="150" height="16" fill="${theme.secondary}" fill-opacity="0.14" />
+    <text x="38" y="73" font-family="'Newsreader', 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Georgia, serif" font-size="40" font-style="italic" fill="${theme.secondary}">The Detection-First Doctrine</text>
+    <text x="38" y="114" font-family="'Work Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="22" fill="${theme.muted}">Inspect the real branch model before touching feature, release, or hotfix paths.</text>
+    <text x="38" y="145" font-family="'Work Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="22" fill="${theme.muted}">Document each move like an archival ledger, not a disposable dashboard.</text>
+  </g>
+
+  <text x="264" y="796" font-family="'Newsreader', 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Georgia, serif" font-size="24" font-style="italic" letter-spacing="8" fill="#73777E">TECHNICAL SPECIFICATIONS</text>
+
+  <g transform="translate(92 822)">
+    <rect width="312" height="42" fill="${theme.text}" />
+    <text x="24" y="28" font-family="'Cascadia Mono', 'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="16" fill="#C8F17A">codex skill install git-flow-skill</text>
+  </g>
+  <g transform="translate(1104 816)">
+    <rect width="332" height="48" fill="${theme.surfaceLow}" />
+    <text x="22" y="30" font-family="'Cascadia Mono', 'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="16" fill="${theme.primary}">uv run --with pyyaml validate</text>
+    <rect x="266" y="12" width="44" height="24" fill="${theme.paper}" />
+    <text x="274" y="29" font-family="'Work Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="700" fill="${theme.tertiary}">PASS</text>
+  </g>
 </svg>`;
 }
 
 function iconSvg(size) {
   return `\
-<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 512 512" role="img" aria-label="Git Flow Skill icon">
-  <rect width="512" height="512" rx="120" fill="${theme.primary}" />
-  <rect x="42" y="42" width="428" height="428" rx="102" fill="#365574" stroke="#9FB2C4" stroke-width="6" />
-  <path d="M94 314 C 162 314, 176 194, 252 194 S 340 302, 416 302" fill="none" stroke="#FFF7EA" stroke-width="28" stroke-linecap="round"/>
-  <path d="M94 372 C 176 372, 188 256, 258 256 S 344 392, 418 392" fill="none" stroke="${theme.secondary}" stroke-width="24" stroke-linecap="round"/>
-  <path d="M94 248 C 146 248, 180 132, 246 132 S 336 222, 418 222" fill="none" stroke="${theme.accent}" stroke-width="18" stroke-linecap="round"/>
-  <circle cx="252" cy="194" r="22" fill="${theme.paper}" />
-  <circle cx="258" cy="256" r="18" fill="${theme.paper}" />
-  <circle cx="246" cy="132" r="16" fill="${theme.paper}" />
+<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 64 64" role="img" aria-label="Git Flow Skill icon" shape-rendering="geometricPrecision">
+  <defs>
+    <linearGradient id="paper-wash" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="${theme.surface}" />
+      <stop offset="100%" stop-color="${theme.surfaceLow}" />
+    </linearGradient>
+  </defs>
+
+  <rect width="64" height="64" fill="url(#paper-wash)" />
+  <path d="M18 14 V50" fill="none" stroke="${theme.primary}" stroke-width="2.25" stroke-opacity="0.32" />
+  <path d="M18 20 C 24 20, 30 19, 44 16.5" fill="none" stroke="${theme.secondary}" stroke-width="5.75" stroke-linecap="square" stroke-linejoin="miter" />
+  <path d="M18 31 C 25 31, 31 30, 46 27.5" fill="none" stroke="${theme.primaryContainer}" stroke-width="5.75" stroke-linecap="square" stroke-linejoin="miter" />
+  <path d="M18 42 C 25 42, 31 41, 48 38.5" fill="none" stroke="${theme.tertiary}" stroke-width="5.75" stroke-linecap="square" stroke-linejoin="miter" />
+
+  <rect x="15.75" y="17.75" width="4.5" height="4.5" fill="${theme.secondary}" />
+  <rect x="15.75" y="28.75" width="4.5" height="4.5" fill="${theme.secondary}" />
+  <rect x="15.75" y="39.75" width="4.5" height="4.5" fill="${theme.secondary}" />
+  <rect x="41.75" y="14.25" width="4.5" height="4.5" fill="${theme.secondary}" />
+  <rect x="43.75" y="25.25" width="4.5" height="4.5" fill="${theme.tint}" />
+  <rect x="45.75" y="36.25" width="4.5" height="4.5" fill="${theme.tertiary}" />
 </svg>`;
 }
 
