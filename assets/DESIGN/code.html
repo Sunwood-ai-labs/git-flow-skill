@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Git-Flow Skill | The Master Archivist Ledger</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Work+Sans:wght@300;400;500;600;700&amp;family=Fira+Code:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-fixed": "#ffdcc2",
+              "inverse-on-surface": "#faf0d5",
+              "surface-tint": "#8c4f10",
+              "on-background": "#1f1c0b",
+              "on-error-container": "#93000a",
+              "surface-container-lowest": "#ffffff",
+              "secondary-fixed": "#cee5ff",
+              "on-surface-variant": "#42474d",
+              "secondary-fixed-dim": "#a8caee",
+              "surface-bright": "#fff9ed",
+              "surface-dim": "#e2dabf",
+              "surface-variant": "#ebe2c8",
+              "on-primary-container": "#f5a661",
+              "on-error": "#ffffff",
+              "on-surface": "#1f1c0b",
+              "tertiary-fixed-dim": "#add461",
+              "outline": "#73777e",
+              "on-tertiary-container": "#9ec554",
+              "outline-variant": "#c2c7ce",
+              "primary": "#4f2800",
+              "secondary": "#406180",
+              "on-tertiary-fixed-variant": "#364e00",
+              "on-secondary-fixed": "#001d33",
+              "surface": "#fff9ed",
+              "secondary-container": "#b9dbff",
+              "error": "#ba1a1a",
+              "on-secondary-container": "#3f607f",
+              "on-primary": "#ffffff",
+              "on-tertiary": "#ffffff",
+              "on-secondary": "#ffffff",
+              "surface-container-high": "#f1e8cd",
+              "error-container": "#ffdad6",
+              "surface-container-highest": "#ebe2c8",
+              "tertiary-fixed": "#c8f17a",
+              "on-tertiary-fixed": "#131f00",
+              "surface-container": "#f7eed2",
+              "on-primary-fixed-variant": "#6d3a00",
+              "primary-container": "#6f3b00",
+              "on-secondary-fixed-variant": "#274967",
+              "inverse-surface": "#35301e",
+              "tertiary": "#263800",
+              "on-primary-fixed": "#2e1500",
+              "surface-container-low": "#fcf3d8",
+              "inverse-primary": "#ffb77b",
+              "tertiary-container": "#385000",
+              "background": "#fff9ed",
+              "primary-fixed-dim": "#ffb77b"
+            },
+            fontFamily: {
+              "headline": ["Newsreader", "serif"],
+              "body": ["Work Sans", "sans-serif"],
+              "label": ["Work Sans", "sans-serif"],
+              "mono": ["Fira Code", "monospace"]
+            },
+            borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+    vertical-align: middle
+    }
+.paper-texture {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuBb58sC-89aDgSfSeRBCgUka7LrjlV9vYKS02rEX0o-BD-N9yBWWS4UrwSABk9erTcIRiDFdskC2AZwDg1rVZT8cESV_6ZKSaEMZmnpVR8nNhPUAJZIihXpMKLUOJMiF3W5oCJNonft4y6FAAnLijMchDLJvhk3jcz8zuqNBKGRuBrmzYGOQm4L2QGpCY-IIb56tHU8Qse6JXYnTjhjJq5jFQHcvTe-Z1m4qE-W_2ZTNwEkz_tIizHZL0U_LegJ0Uhmiz42JfyMsGU)
+    }
+.ledger-line {
+    background-image: linear-gradient(to right, transparent 0%, rgba(79, 40, 0, 0.05) 1%, transparent 2%);
+    background-size: 40px 100%
+    }</style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- Top Navigation Bar -->
+<nav class="bg-[#fff9ed] dark:bg-[#1f1c0b] rounded-none border-none w-full sticky top-0 z-50 bg-[#fcf3d8] dark:bg-[#2a2612] shadow-[0_1px_0_0_rgba(79,40,0,0.1)]">
+<div class="flex justify-between items-center w-full px-12 py-8 max-w-[1600px] mx-auto">
+<div class="text-3xl font-['Newsreader'] font-bold text-[#4f2800] dark:text-[#fcf3d8] tracking-tighter">
+                Git-Flow Skill
+            </div>
+<div class="hidden md:flex items-center gap-12">
+<a class="text-[#4f2800] dark:text-[#ffffff] border-b-2 border-[#4f2800] dark:border-[#ebe2c8] pb-1 font-bold font-['Newsreader'] italic tracking-tight text-lg dark:text-stone-200" href="#">Archives</a>
+<a class="text-[#406180] dark:text-[#73777e] hover:text-[#4f2800] dark:hover:text-white transition-all font-['Newsreader'] italic tracking-tight text-lg dark:text-stone-200" href="#">Branches</a>
+<a class="text-[#406180] dark:text-[#73777e] hover:text-[#4f2800] dark:hover:text-white transition-all font-['Newsreader'] italic tracking-tight text-lg dark:text-stone-200" href="#">Strategy</a>
+<a class="text-[#406180] dark:text-[#73777e] hover:text-[#4f2800] dark:hover:text-white transition-all font-['Newsreader'] italic tracking-tight text-lg dark:text-stone-200" href="#">Glossary</a>
+</div>
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-secondary cursor-pointer hover:bg-[#ebe2c8]/50 p-2 transition-all">history_edu</span>
+<span class="material-symbols-outlined text-secondary cursor-pointer hover:bg-[#ebe2c8]/50 p-2 transition-all">account_balance</span>
+<button class="bg-primary text-on-primary px-6 py-2 font-headline italic tracking-tight text-lg hover:bg-primary-container transition-all active:scale-95">
+                    Copper Merge
+                </button>
+</div>
+</div>
+</nav>
+<main class="max-w-[1400px] mx-auto px-8 md:px-16 space-y-32 py-20">
+<!-- Hero Section -->
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="space-y-8">
+<h1 class="font-headline text-7xl md:text-8xl text-secondary leading-[0.9] tracking-tighter italic">
+                    Git Flow Skill
+                </h1>
+<p class="text-2xl text-on-surface-variant font-light max-w-xl leading-relaxed">
+                    A Codex skill for detection-first <span class="text-primary italic font-medium">Git Flow branching</span>, releases, hotfixes, and agent-friendly commit workflows. Documented for digital permanence.
+                </p>
+<div class="flex gap-4 pt-4">
+<button class="bg-primary text-on-primary px-10 py-4 text-xl font-headline italic tracking-tight border border-primary hover:bg-transparent hover:text-primary transition-colors">Initialize Ledger</button>
+<button class="border border-outline px-10 py-4 text-xl font-headline italic tracking-tight text-secondary hover:bg-surface-container-low transition-colors">Read Manual</button>
+</div>
+</div>
+<div class="relative bg-surface-container-low p-8 border border-outline-variant/30">
+<div class="aspect-square w-full bg-surface-container-lowest flex items-center justify-center p-12 paper-texture shadow-sm">
+<svg class="w-full h-full text-primary/20 fill-none" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<path d="M40 20V180M40 60C80 60 120 40 160 40M40 100C80 100 120 80 160 80M40 140C80 140 120 120 160 120" stroke="currentColor" stroke-width="2"></path>
+<rect fill="currentColor" height="10" width="10" x="155" y="35"></rect>
+<rect fill="currentColor" height="10" width="10" x="155" y="75"></rect>
+<rect fill="currentColor" height="10" width="10" x="155" y="115"></rect>
+<circle cx="40" cy="60" fill="#406180" r="4"></circle>
+<circle cx="40" cy="100" fill="#406180" r="4"></circle>
+<circle cx="40" cy="140" fill="#406180" r="4"></circle>
+</svg>
+</div>
+<div class="absolute -bottom-6 -right-6 bg-tertiary text-on-tertiary px-6 py-4 font-headline italic text-lg shadow-lg">
+                    Certified Branch Pattern
+                </div>
+</div>
+</section>
+<!-- Overview Section -->
+<section class="max-w-4xl mx-auto">
+<div class="bg-surface-container-lowest p-12 border-l-8 border-secondary paper-texture shadow-sm relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-9xl">menu_book</span>
+</div>
+<h2 class="font-headline text-4xl text-secondary mb-6 italic tracking-tight">The Detection-First Doctrine</h2>
+<p class="text-xl text-on-surface-variant leading-loose font-body">
+                    Unlike standard CLI tools that force a state upon your repository, Git-Flow Skill prioritizes <span class="font-semibold text-on-surface">environmental awareness</span>. It scans existing branch structures, commit histories, and remote states before suggesting a flow. This ensures your agent-based workflows remain stable, predictable, and historically accurate—preserving the integrity of your technical ledger.
+                </p>
+</div>
+</section>
+<!-- Highlights Section -->
+<section class="space-y-12">
+<div class="flex items-center gap-4">
+<div class="h-px flex-grow bg-outline-variant/50"></div>
+<h3 class="font-headline text-2xl uppercase tracking-[0.3em] text-on-surface-variant italic">Technical Specifications</h3>
+<div class="h-px flex-grow bg-outline-variant/50"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Card 1 -->
+<div class="bg-surface-container-low p-8 border border-outline-variant/30 hover:bg-surface-container-high transition-colors group">
+<span class="material-symbols-outlined text-secondary text-4xl mb-6">search_check</span>
+<h4 class="font-headline text-2xl text-primary mb-4 italic">Detects Branching</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed font-body">Automatic scanning of existing repository topologies to align with historical standards.</p>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-low p-8 border border-outline-variant/30 hover:bg-surface-container-high transition-colors group">
+<span class="material-symbols-outlined text-secondary text-4xl mb-6">dynamic_feed</span>
+<h4 class="font-headline text-2xl text-primary mb-4 italic">Managed Flows</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed font-body">Orchestrated transitions for feature isolation, release preparation, and urgent hotfixing.</p>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-low p-8 border border-outline-variant/30 hover:bg-surface-container-high transition-colors group">
+<span class="material-symbols-outlined text-secondary text-4xl mb-6">terminal</span>
+<h4 class="font-headline text-2xl text-primary mb-4 italic">PS Initializer</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed font-body">Deeply integrated PowerShell environment bootstrapping for instant productivity.</p>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-container-low p-8 border border-outline-variant/30 hover:bg-surface-container-high transition-colors group">
+<span class="material-symbols-outlined text-secondary text-4xl mb-6">verified</span>
+<h4 class="font-headline text-2xl text-primary mb-4 italic">Smoke-Tested CI</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed font-body">Every workflow path is validated through high-integrity continuous integration cycles.</p>
+</div>
+</div>
+</section>
+<!-- Branch Strategy Section -->
+<section class="bg-tertiary-container/10 p-12 border border-tertiary/20 relative overflow-hidden">
+<div class="absolute inset-0 ledger-line opacity-50 pointer-events-none"></div>
+<div class="relative z-10 flex flex-col lg:flex-row gap-16 items-start">
+<div class="lg:w-1/3 space-y-6">
+<h3 class="font-headline text-5xl text-tertiary italic tracking-tight">The Branch Ledger</h3>
+<p class="text-on-surface-variant leading-relaxed">A rigid yet flexible structure for technical documentation. Each branch serves a specific purpose in the chronological archive.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-primary text-on-primary text-xs font-mono">main</span>
+<span class="px-3 py-1 bg-secondary text-on-secondary text-xs font-mono">develop</span>
+<span class="px-3 py-1 bg-tertiary text-on-tertiary text-xs font-mono">feature/*</span>
+<span class="px-3 py-1 bg-surface-tint text-on-primary text-xs font-mono">hotfix/*</span>
+</div>
+</div>
+<div class="lg:w-2/3 w-full bg-surface-container-lowest border border-outline-variant/50 p-8 shadow-inner overflow-x-auto">
+<table class="w-full text-left font-body">
+<thead>
+<tr class="border-b border-outline-variant/30">
+<th class="pb-4 font-headline italic text-xl text-primary">Class</th>
+<th class="pb-4 font-headline italic text-xl text-primary">Origin</th>
+<th class="pb-4 font-headline italic text-xl text-primary">Destination</th>
+<th class="pb-4 font-headline italic text-xl text-primary">Purpose</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<tr>
+<td class="py-4 font-mono text-xs text-primary font-bold">Main</td>
+<td class="py-4 text-xs">Genesis</td>
+<td class="py-4 text-xs">Immutable</td>
+<td class="py-4 text-xs italic">Production Reality</td>
+</tr>
+<tr>
+<td class="py-4 font-mono text-xs text-secondary font-bold">Develop</td>
+<td class="py-4 text-xs">Main</td>
+<td class="py-4 text-xs">Main</td>
+<td class="py-4 text-xs italic">Integration Workspace</td>
+</tr>
+<tr>
+<td class="py-4 font-mono text-xs text-tertiary font-bold">Feature</td>
+<td class="py-4 text-xs">Develop</td>
+<td class="py-4 text-xs">Develop</td>
+<td class="py-4 text-xs italic">Isolated Enhancement</td>
+</tr>
+<tr>
+<td class="py-4 font-mono text-xs text-surface-tint font-bold">Hotfix</td>
+<td class="py-4 text-xs">Main</td>
+<td class="py-4 text-xs">Main / Dev</td>
+<td class="py-4 text-xs italic">Critical Resolution</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<!-- Commit Discipline Section -->
+<section class="bg-surface-container-highest p-16 paper-texture border border-outline-variant/40 relative">
+<div class="max-w-3xl mx-auto space-y-10 text-center">
+<span class="material-symbols-outlined text-primary text-6xl" style="font-variation-settings: 'FILL' 1;">history_edu</span>
+<h3 class="font-headline text-5xl text-primary italic tracking-tight">The 5-Line Discipline</h3>
+<p class="text-xl text-on-surface-variant italic leading-relaxed">"A commit is a letter to your future self. Make it legible, make it meaningful, and above all, make it disciplined."</p>
+<div class="bg-surface-container-lowest p-8 border-l-4 border-primary text-left font-mono text-sm leading-relaxed shadow-sm">
+<div class="text-tertiary mb-2">✨ feat(core): Implement ledger-aware scanning</div>
+<div class="text-on-surface-variant opacity-60 mb-4 border-b border-outline-variant/20 pb-2">Entry 0x4F2A // 2023-10-24</div>
+<div class="space-y-1">
+<p>1. Introduced recursive scanning for .gitflow-profile</p>
+<p>2. Added support for multi-remote verification</p>
+<p>3. Optimized tree traversal for large monorepos</p>
+<p>4. Resolved edge-case in detached HEAD states</p>
+<p>5. Validated against legacy SVN-bridge patterns</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Installation & Quick Validation -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<div class="space-y-6">
+<h3 class="font-headline text-3xl text-secondary italic">Skill Invocation</h3>
+<div class="bg-on-background p-6 text-surface-container-lowest font-mono text-sm space-y-3 relative">
+<div class="flex items-center gap-2 mb-4 opacity-50">
+<div class="w-3 h-3 bg-error rounded-full"></div>
+<div class="w-3 h-3 bg-surface-tint rounded-full"></div>
+<div class="w-3 h-3 bg-tertiary rounded-full"></div>
+</div>
+<p class="text-tertiary-fixed"># Invoke the master ledger skill</p>
+<p><span class="text-primary-fixed-dim">codex</span> skill install git-flow-skill</p>
+<p><span class="text-primary-fixed-dim">git-flow</span> init --ledger-mode</p>
+</div>
+</div>
+<div class="space-y-6">
+<h3 class="font-headline text-3xl text-secondary italic">Quick Validation</h3>
+<div class="bg-surface-container-low p-6 border border-outline-variant/30 font-mono text-sm space-y-3">
+<p class="text-on-surface-variant opacity-60 italic"># Powershell Validation Commands</p>
+<p class="flex justify-between">
+<span>Test-GitFlowIntegrity</span>
+<span class="text-tertiary font-bold">PASSED</span>
+</p>
+<p class="flex justify-between">
+<span>Get-FlowState -Verbose</span>
+<span class="text-secondary font-bold">READY</span>
+</p>
+<div class="h-px bg-outline-variant/30 my-2"></div>
+<p class="text-xs text-on-surface-variant">Last verified commit: <span class="text-primary">8c4f10a</span></p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#fcf3d8] dark:bg-[#1a180a] rounded-none border-t border-[#4f2800]/10 w-full mt-24">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 py-16 gap-8 w-full max-w-[1600px] mx-auto">
+<div class="font-['Newsreader'] text-xl text-[#4f2800] dark:text-[#ebe2c8]">
+                Git-Flow Skill <span class="text-xs font-body uppercase tracking-widest opacity-50 ml-2">v4.2.0</span>
+</div>
+<div class="flex gap-8 font-['Work_Sans'] text-xs uppercase tracking-widest">
+<a class="text-[#42474d] dark:text-[#8c9199] hover:text-[#4f2800] opacity-80 hover:opacity-100 transition-opacity hover:underline underline-offset-4 decoration-[#4f2800]/30" href="#">GitHub Source</a>
+<a class="text-[#42474d] dark:text-[#8c9199] hover:text-[#4f2800] opacity-80 hover:opacity-100 transition-opacity hover:underline underline-offset-4 decoration-[#4f2800]/30" href="#">Technical Manual</a>
+<a class="text-[#42474d] dark:text-[#8c9199] hover:text-[#4f2800] opacity-80 hover:opacity-100 transition-opacity hover:underline underline-offset-4 decoration-[#4f2800]/30" href="#">Archivist Guidelines</a>
+</div>
+<div class="text-[#1f1c0b] dark:text-[#a1b2c2] font-['Work_Sans'] text-xs uppercase tracking-widest text-center md:text-right opacity-60">
+                Licensed under MIT Ledger.<br/>All commits documented for digital permanence.
+            </div>
+</div>
+</footer>
+</body></html>
